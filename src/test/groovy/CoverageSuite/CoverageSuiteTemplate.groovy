@@ -1,6 +1,5 @@
 package CoverageSuite
 
-import Google.SearchTest
 import org.junit.runner.RunWith
 import org.junit.runners.Suite
 

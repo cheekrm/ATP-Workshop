@@ -7,22 +7,27 @@ import org.openqa.selenium.chrome.ChromeDriver
 
 driver =
 {
+    String os = ""
+    String fileType = ""
+
     String osName = System.getProperty("os.name").toLowerCase()
     if (osName.contains("windows")) {
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\src\\test\\resources\\Drivers\\chromedriver\\chromedriver.exe");
+        os = "Windows"
+        fileType = ".exe"
     } else if (osName.contains("mac")) {
-        return OperatingSystem.OSX
+        os = "Mac"
     } else if (osName.contains("linux")) {
-        return OperatingSystem.LINUX
+        os = "Linux"
     } else {
-        throw new Exception("Unrecognized operating system '${osName}'.")
+        throw new Exception("Unrecognized operating system '${osName}.")
     }
 
+    System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\src\\test\\resources\\Drivers\\${os}\\chromedriver\\chromedriver${fileType}")
+
     WebDriver driver = new ChromeDriver()
-    driver
 }
 
-reportsDir = "C:\\"
+reportsDir = ""
 baseUrl = ""
 atCheckWaiting = [30, 1]
 autoClearCookies = false

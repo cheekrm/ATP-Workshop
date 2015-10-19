@@ -1,0 +1,85 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.5
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+ext.groovy_version = "2.3.9"
+ext.junit_version = "4.8.1"
+ext.spock_version = "0.7-groovy-2.0"
+ext.geb_version = "0.10.0"
+ext.selenium_version = "2.42.2"
+ext.http_builder_version = "0.7"
+ext.build_sourceEncoding = "UTF-8"
+ext.reporting_outputEncoding = "UTF-8"
+ext.oauth_signpost_version = "1.2.1.2"
+ext.httpcomponents_version = "4.3.2"
+ext.ghost_driver_version = "1.0.1"
+
+dependencies {
+    compile localGroovy()
+
+    compile group: 'org.codehaus.groovy', name: 'groovy-backports-compat23', version: groovy_version
+    compile group: 'org.codehaus.groovy', name: 'groovy-all', version: groovy_version
+    compile group: 'junit', name: 'junit', version: junit_version
+
+    // Spock
+    compile(group: 'org.spockframework', name: 'spock-core', version: spock_version) {
+        //excluding a particular transitive dependency:
+        exclude group: 'org.codehaus.groovy', module: 'groovy-all'
+    }
+
+    // Geb
+    compile group: 'org.gebish', name: 'geb-spock', version: geb_version
+
+    // Selenium
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version: selenium_version
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: selenium_version
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: selenium_version
+
+    compile group: 'org.codehaus.groovy.modules.http-builder', name: 'http-builder', version: http_builder_version
+
+    // OAUTH SignPost
+    compile group: 'oauth.signpost', name: 'signpost-core', version: oauth_signpost_version
+    compile group: 'oauth.signpost', name: 'signpost-commonshttp4', version: oauth_signpost_version
+    compile group: 'oauth.signpost', name: 'signpost-jetty6', version: oauth_signpost_version
+
+    compile group: 'org.apache.httpcomponents', name: 'httpcore', version: httpcomponents_version
+
+    compile group: 'com.github.detro.ghostdriver', name: 'phantomjsdriver', version: ghost_driver_version
+
+    // Test
+    testCompile localGroovy()
+
+    testCompile group: 'org.codehaus.groovy', name: 'groovy-backports-compat23', version: groovy_version
+    testCompile group: 'org.codehaus.groovy', name: 'groovy-all', version: groovy_version
+    testCompile group: 'junit', name: 'junit', version: junit_version
+
+    // Spock
+    testCompile(group: 'org.spockframework', name: 'spock-core', version: spock_version) {
+        // Excluding a particular transitive dependency:
+        exclude group: 'org.codehaus.groovy', module: 'groovy-all'
+    }
+
+    // Geb
+    testCompile group: 'org.gebish', name: 'geb-spock', version: geb_version
+
+    // Selenium
+    testCompile group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version: selenium_version
+    testCompile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: selenium_version
+    testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: selenium_version
+
+    testCompile group: 'org.codehaus.groovy.modules.http-builder', name: 'http-builder', version: http_builder_version
+
+    // OAUTH SignPost
+    testCompile group: 'oauth.signpost', name: 'signpost-core', version: oauth_signpost_version
+    testCompile group: 'oauth.signpost', name: 'signpost-commonshttp4', version: oauth_signpost_version
+    testCompile group: 'oauth.signpost', name: 'signpost-jetty6', version: oauth_signpost_version
+
+    testCompile group: 'org.apache.httpcomponents', name: 'httpcore', version: httpcomponents_version
+
+    testCompile group: 'com.github.detro.ghostdriver', name: 'phantomjsdriver', version: ghost_driver_version
+}

@@ -20,7 +20,6 @@ ext.httpcomponents_version = "4.3.2"
 ext.ghost_driver_version = "1.0.1"
 
 dependencies {
-    compile localGroovy()
 
     compile group: 'org.codehaus.groovy', name: 'groovy-backports-compat23', version: groovy_version
     compile group: 'org.codehaus.groovy', name: 'groovy-all', version: groovy_version
